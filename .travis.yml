@@ -8,4 +8,5 @@ before_install:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - composer global require drush/drush:^8 pantheon-systems/terminus:^1
 script:
+  - terminus self:info
   - terminus connection:info -vvv --format json foo.bar
