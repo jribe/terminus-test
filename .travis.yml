@@ -1,0 +1,11 @@
+sudo: false
+language: php
+php:
+  - 7.1
+before_install:
+  # Turning off xdebug has a huge impact on composer performance
+  - phpenv config-rm xdebug.ini
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - composer global require drush/drush:^8 pantheon-systems/terminus:^1
+script:
+  - terminus connection:info --format json foo.bar
