@@ -4,7 +4,9 @@ php:
   - 7.1
 before_install:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - composer global require drush/drush:^8 pantheon-systems/terminus:^1
+  - composer global require consolidation/cgr
+  - cgr "pantheon-systems/terminus:~1"
+  - cgr "drush/drush:^8"
 script:
   - terminus self:info
   - terminus connection:info -vvv --format=json foo.bar
